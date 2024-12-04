@@ -5,10 +5,19 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ("age",)
+        # password does not need to be included - required by default
+        fields = (
+            "username",
+            "email",
+            "age",
+        )
 
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = UserChangeForm.Meta.fields  # why is age not included here?
+        fields = (
+            "username",
+            "email",
+            "age",
+        )
